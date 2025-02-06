@@ -1,5 +1,5 @@
  
-/* Css For Biztech */
+/* Css For NaviPromotion */
 
 /************ TABLE OF CONTENTS ***************
 1. Fonts
@@ -38,6 +38,7 @@
 37. Blog Sidebar
 38. Contact Section
 39. Google Map
+40. Banner Section 
 
 
 **********************************************/
@@ -696,6 +697,74 @@ img {
   -op-animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
+}
+
+/***Banner Section ***/
+
+.banner-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+/* Hide Owl Carousel navigation arrows */
+.banner-carousel .owl-nav {
+display: none !important;
+}
+.image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+.content-box {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+.subheading {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+p {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #ddd;
+}
+.theme-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 18px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.red-btn {
+  background: #e63946;
+  color: white;
+}
+.red-btn:hover {
+  background: #d62828;
 }
 
 /*** Search Popup ***/
