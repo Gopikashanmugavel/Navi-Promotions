@@ -767,6 +767,26 @@ p {
   background: #d62828;
 }
 
+/**feature**/
+
+.feature-block {
+  display: flex;
+  flex-direction: column;
+  }
+
+  .feature-block-one {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+  .inner-box {
+   flex-grow: 1;
+   display: flex;
+  flex-direction: column;
+justify-content: space-between;
+}
+
 /*** Search Popup ***/
 
 .search-popup {
