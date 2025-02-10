@@ -1,29 +1,58 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $phone = htmlspecialchars($_POST['phone']);
-    $position = htmlspecialchars($_POST['position']);
+// Database configuration
+$servername = "localhost";
+$username = "root"; // Change to your DB username
+$password = ""; // Change to your DB password
+$database = "job_portal"; // Change to your DB name
 
-    // File Upload
-    $uploadDir = "uploads/";
-    if (!file_exists($uploadDir)) {
-        mkdir($uploadDir, 0777, true);
-    }
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
 
-    $resumePath = $uploadDir . basename($_FILES["resume"]["name"]);
-    
-    if (move_uploaded_file($_FILES["resume"]["tmp_name"], $resumePath)) {
-        echo "<h2>Application Submitted Successfully!</h2>";
-        echo "<p>Name: $name</p>";
-        echo "<p>Email: $email</p>";
-        echo "<p>Phone: $phone</p>";
-        echo "<p>Position: $position</p>";
-        echo "<p>Resume: <a href='$resumePath' target='_blank'>View Resume</a></p>";
-    } else {
-        echo "<h2>File Upload Failed.</h2>";
-    }
-} else {
-    echo "<h2>Invalid Request</h2>";
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve Basic Information
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $address = $_POST['address'];
+    $description = $_POST['description'];
+    
+    // Insert into applicants table
+    $sql = "INSERT INTO applicants (name, email, phone, gender, dob, address, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssssss", $name, $email, $phone, $gender, $dob, $address, $description);
+    $stmt->execute();
+    $applicant_id = $stmt->insert_id;
+    
+    // Insert Education Details
+    foreach ($_POST['degree'] as $index => $degree) {
+        $institution = $_POST['institution'][$index];
+        $year = $_POST['year'][$index];
+        
+        $sql = "INSERT INTO education (applicant_id, degree, institution, year) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("issi", $applicant_id, $degree, $institution, $year);
+        $stmt->execute();
+    }
+    
+    // Insert Skills
+    foreach ($_POST['skills'] as $index => $skill) {
+        $proficiency = $_POST['proficiency'][$index];
+        
+        $sql = "INSERT INTO skills (applicant_id, skill, proficiency) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("isi", $applicant_id, $skill, $proficiency);
+        $stmt->execute();
+    }
+    
+    echo "<script>alert('Application submitted successfully!'); window.location.href='index.html';</script>";
+}
+
+$conn->close();
 ?>
