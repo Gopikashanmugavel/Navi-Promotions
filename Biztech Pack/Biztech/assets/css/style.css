@@ -537,7 +537,7 @@ img {
   top: 0;
   height: 100%;
   width: 100%;
-  background: red;
+  background: #F7A800;
 }
 
 .scroll-to-top .scroll-bar .bar-inner {
@@ -552,7 +552,7 @@ img {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  color: red;
+  color: #F7A800;
   transition: all 500ms ease;
 }
 
@@ -749,7 +749,7 @@ h2 {
 p {
   font-size: 18px;
   margin-top: 10px;
-  color: #ddd;
+  color: #696355;
 }
 .theme-btn {
   display: inline-block;
@@ -760,11 +760,12 @@ p {
   text-decoration: none;
 }
 .red-btn {
-  background: #e63946;
+  background: #00488E;
   color: white;
 }
 .red-btn:hover {
-  background: #d62828;
+  background: #2190ff;
+
 }
 
 /**feature**/
