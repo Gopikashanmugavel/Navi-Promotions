@@ -184,7 +184,7 @@ h1,h2,h3,h4,h5,h6{
   position:relative;
   font-family: 'Jost', sans-serif;
   font-weight: 400;
-  color: #222;
+  color: #67448f;
   margin: 0px;
   transition: all 500ms ease;
 }
@@ -749,7 +749,7 @@ h2 {
 p {
   font-size: 18px;
   margin-top: 10px;
-  color: #696355;
+  color: #726851;
 }
 .theme-btn {
   display: inline-block;
