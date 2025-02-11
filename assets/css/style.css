@@ -184,7 +184,7 @@ h1,h2,h3,h4,h5,h6{
   position:relative;
   font-family: 'Jost', sans-serif;
   font-weight: 400;
-  color: #67448f;
+  color: #00488E;
   margin: 0px;
   transition: all 500ms ease;
 }
@@ -918,7 +918,7 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 0px 70px;
-  background: #241E2F;
+  background: #16141a;
   border-radius: 0px 0px 100px 100px;
 }
 
