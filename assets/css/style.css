@@ -187,6 +187,7 @@ h1,h2,h3,h4,h5,h6{
   color: #00488E;
   margin: 0px;
   transition: all 500ms ease;
+  text-align: left;
 }
 
 /* Preloader */
@@ -615,10 +616,12 @@ img {
   line-height: 50px;
   font-weight: 700;
   margin: 0px;
+  text-align: justify;
+  white-space: nowrap;
 }
 
 .sec-title.light h2{
-  color: #fff;
+  color:  #0080ff;
 }
 
 .owl-dots-none .owl-dots,
@@ -740,6 +743,7 @@ display: none !important;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color:  #F7A800;
 }
 h2 {
   font-size: 40px;
@@ -750,6 +754,8 @@ p {
   font-size: 18px;
   margin-top: 10px;
   color: #726851;
+  text-align:left;
+  white-space: nowrap;
 }
 .theme-btn {
   display: inline-block;
