@@ -2270,12 +2270,13 @@ div#mCSB_1_container{
 .list-style-one li{
   position: relative;
   display: block;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 25px;
-  color: #222;
+  color: #726851;
   font-weight: 500;
   padding-left: 27px;
   margin-bottom: 12px;
+  font-family: sans-serif;
 }
 
 .list-style-one li:last-child{
