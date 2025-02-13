@@ -112,7 +112,7 @@
         // ✅ Upload resume to Cloudinary
         const cloudinaryData = new FormData();
         cloudinaryData.append("file", fileInput.files[0]);
-        cloudinaryData.append("upload_preset", "resume_upload");
+        cloudinaryData.append("upload_preset", "m5yqvryx");
 
         const cloudinaryResponse = await axios.post(
             'https://api.cloudinary.com/v1_1/dzehqrwmd/upload', 
@@ -176,6 +176,105 @@
 }
 
 </script>
+
+<style>
+  /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.upload-container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f5f5f5;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    color: #00488E;
+}
+
+h3 {
+    color: #00488E;
+    border-bottom: 2px solid #F7A800;
+    padding-bottom: 5px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Buttons */
+button {
+    background-color: #00488E;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #003366;
+}
+
+/* Add and Remove Buttons */
+.add-btn {
+    background-color: #F7A800;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-btn:hover {
+    background-color: #d88c00;
+}
+
+.remove-btn {
+    background-color: #d9534f;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remove-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .upload-container {
+        width: 80%;
+    }
+}
+
+</style>
 
 </body>
 </html>
