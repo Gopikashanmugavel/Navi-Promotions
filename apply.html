@@ -67,7 +67,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script>
     (function() {
-      emailjs.init('KPm55EhJ4r9KYlQnF'); // EmailJS with user ID
+      emailjs.init('sAqX4hdRv36UWHwN8'); // EmailJS with user ID
     })();
 
     async function sendEmail(event) {
@@ -104,7 +104,7 @@
           resume_url: fileUrl
         };
 
-        emailjs.send('service_31n6vt7', 'template_3vt48y4', templateParams)
+        emailjs.send('service_qxzvui2', 'template_4x9vmxp', templateParams)
           .then(function(response) {
             alert('Resume sent successfully!', response.status, response.text);
           }, function(error) {
