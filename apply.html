@@ -1,134 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume Upload</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #d4b675;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .upload-container {
-      background-color: #1918195e;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      width: 350px;
-      text-align: center;
-      height: 350px;
-    }
-    .upload-container h2 {
-      margin-bottom: 20px;
-      color: #fff;
-    }
-    .upload-container input[type="file"] {
-      margin-bottom: 20px;
-      width: 300px;
-      padding: 5px;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-    }
-    .upload-container input[type="text"] {
-      margin-bottom: 20px;
-      width: 300px;
-      padding: 5px;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      background-color: rgba(3, 3, 3, 0.321);
-    }
-    .upload-container input[type="file"]:focus,
-    .upload-container input[type="text"]:focus {
-      border-color: #d3ced5;
-      outline: none;
-      box-shadow: 0 0 5px rgba(245, 238, 248, 0.5);
-    }
-    .upload-container button {
-      background: linear-gradient(to right, #9AC2FF, #568AFE);
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .upload-container button:hover {
-      background: linear-gradient(to right, #568AFE, #9AC2FF);
-    }
-  </style>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init('sAqX4hdRv36UWHwN8'); // EmailJS with user ID
-    })();
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Upload</title>
 
-    async function sendEmail(event) {
-      event.preventDefault();
+    <!-- Axios for API Requests -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-      const name = document.querySelector('input[name="name"]').value;
-      const role = document.querySelector('input[name="role"]').value;
-      const email = document.querySelector('input[name="email"]').value;
-      const resume = document.querySelector('input[name="resume"]').files[0];
+    <!-- EmailJS Integration -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("Rvp4yKDqi42mqo3oz"); // ✅ Ensure this is your actual EmailJS user ID
+        })();
+    </script>
 
-      // Prepare form data for Cloudinary
-      const formData = new FormData();
-      formData.append('file', resume);
-      formData.append('upload_preset', 'm5yqvryx'); // Cloudinary upload preset
-
-      try {
-        // Log formData to debug
-        console.log("Form Data:", formData.get('file'), formData.get('upload_preset'));
-
-        const response = await axios.post('https://api.cloudinary.com/v1_1/dzehqrwmd/upload', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            'Accept': 'application/json'
-          }
-        });
-
-        const fileUrl = response.data.secure_url;
-        console.log("Uploaded File URL:", fileUrl); // Log file URL for verification
-
-        const templateParams = {
-          name: name,
-          role: role,
-          email: email,
-          resume_url: fileUrl
-        };
-
-        emailjs.send('service_qxzvui2', 'template_4x9vmxp', templateParams)
-          .then(function(response) {
-            alert('Resume sent successfully!', response.status, response.text);
-          }, function(error) {
-            alert('Failed to send resume. Please try again.');
-            console.error('EmailJS error:', error);
-          });
-
-      } catch (error) {
-        console.error('Error uploading file:', error.response ? error.response.data : error);
-        alert('Failed to upload file. Please try again.');
-      }
-    }
-  </script>
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="upload-container">
+
+<div class="upload-container">
     <h2>Upload Your Resume</h2>
-    <form id="uploadForm" enctype="multipart/form-data" onsubmit="sendEmail(event)">
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="text" name="role" placeholder="Role" required />
-      <input type="text" name="email" placeholder="Email" required/>
-      <input type="file" name="resume" accept=".pdf" required />
-      <button type="submit">Submit</button>
+    <form id="uploadForm" enctype="multipart/form-data" onsubmit="sendEmailAndWhatsApp(event)">
+        
+        <h3>Basic Information</h3>
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="role" placeholder="Role" required />
+        <input type="text" name="phone" placeholder="Phone Number" required />
+        <select name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="date" name="dob" required />
+        <textarea name="address" placeholder="Enter your address" rows="2" required></textarea>
+        <textarea name="description" placeholder="Short Description" rows="3"></textarea>
+
+        <h3>Education</h3>
+        <div id="education-section">
+            <div class="education-entry">
+                <input type="text" name="degree[]" placeholder="Degree (e.g. B.Sc.)" required />
+                <input type="text" name="institution[]" placeholder="Institution Name" required />
+                <input type="number" name="year[]" placeholder="Year of Completion" required />
+                <button type="button" class="add-btn" onclick="addEducation()">+ Add</button>
+            </div>
+        </div>
+
+        <h3>Skills</h3>
+        <div id="skills-section">
+            <div class="skill-entry">
+                <input type="text" name="skill[]" placeholder="Skill (e.g. JavaScript)" required />
+                <input type="number" name="proficiency[]" placeholder="Proficiency (%)" min="1" max="100" required />
+                <button type="button" class="add-btn" onclick="addSkill()">+ Add</button>
+            </div>
+        </div>
+
+        <h3>Resume Upload</h3>
+        <input type="file" name="resume" accept=".pdf" required />
+
+        <button type="submit">Submit Application</button>
     </form>
-  </div>
+</div>
+
+<script>
+  function addEducation() {
+      const section = document.getElementById('education-section');
+      const div = document.createElement('div');
+      div.classList.add('education-entry');
+      div.innerHTML = `
+          <input type="text" name="degree[]" placeholder="Degree" required />
+          <input type="text" name="institution[]" placeholder="Institution Name" required />
+          <input type="number" name="year[]" placeholder="Year of Completion" required />
+          <button type="button" class="remove-btn" onclick="removeEntry(this)">- Remove</button>
+      `;
+      section.appendChild(div);
+  }
+
+  function addSkill() {
+      const section = document.getElementById('skills-section');
+      const div = document.createElement('div');
+      div.classList.add('skill-entry');
+      div.innerHTML = `
+          <input type="text" name="skill[]" placeholder="Skill" required />
+          <input type="number" name="proficiency[]" placeholder="Proficiency (%)" min="1" max="100" required />
+          <button type="button" class="remove-btn" onclick="removeEntry(this)">- Remove</button>
+      `;
+      section.appendChild(div);
+  }
+
+  function removeEntry(button) {
+      button.parentElement.remove();
+  }
+
+  async function sendEmailAndWhatsApp(event) {
+    event.preventDefault();
+
+    const form = document.getElementById('uploadForm');
+    const formData = new FormData(form);
+    const fileInput = form.querySelector('input[name="resume"]');
+
+    if (!fileInput.files.length) {
+        alert('Please upload your resume.');
+        return;
+    }
+
+    try {
+        // ✅ Upload resume to Cloudinary
+        const cloudinaryData = new FormData();
+        cloudinaryData.append("file", fileInput.files[0]);
+        cloudinaryData.append("upload_preset", "resume_upload");
+
+        const cloudinaryResponse = await axios.post(
+            'https://api.cloudinary.com/v1_1/dzehqrwmd/upload', 
+            cloudinaryData
+        );
+
+        const resumeUrl = cloudinaryResponse.data.secure_url;
+
+        // ✅ Collect Education Entries
+        const educationEntries = [];
+        const institutionNames = [];
+        const years = [];
+
+        document.querySelectorAll('.education-entry').forEach(entry => {
+            const degree = entry.querySelector('input[name="degree[]"]').value.trim();
+            const institution = entry.querySelector('input[name="institution[]"]').value.trim();
+            const year = entry.querySelector('input[name="year[]"]').value.trim();
+
+            if (degree && institution && year) {
+                educationEntries.push(`${degree} from ${institution} (${year})`);
+            }
+        });
+
+        // ✅ Collect Skills Entries
+        const skillEntries = [];
+        const proficiencies = [];
+
+        document.querySelectorAll('.skill-entry').forEach(entry => {
+            const skill = entry.querySelector('input[name="skill[]"]').value.trim();
+            const proficiency = entry.querySelector('input[name="proficiency[]"]').value.trim();
+
+            if (skill && proficiency) {
+                skillEntries.push(`${skill} - ${proficiency}%`);
+                proficiencies.push(proficiency);
+            }
+        });
+
+        // ✅ Prepare Data for EmailJS
+        const emailParams = {
+            name: formData.get('name') || "Not provided",
+            email: formData.get('email') || "Not provided",
+            role: formData.get('role') || "Not provided",
+            phone: formData.get('phone') || "Not provided",
+            gender: formData.get('gender') || "Not provided",
+            dob: formData.get('dob') || "Not provided",
+            address: formData.get('address') || "Not provided",
+            description: formData.get('description') || "Not provided",
+            degree: educationEntries.length > 0 ? educationEntries.join("\n") : "Not provided",
+            skill: skillEntries.length > 0 ? skillEntries.join("\n") : "Not provided",
+            resume_url: resumeUrl 
+        };
+
+        // ✅ Send email via EmailJS
+        await emailjs.send('service_68r0dmm', 'template_bihfita', emailParams);
+        alert('Resume sent successfully via Email!');
+
+    } catch (error) {
+        console.error('Error uploading file or sending message:', error);
+        alert('Failed to upload file or send message. Please try again.');
+    }
+}
+
+</script>
+
 </body>
 </html>
