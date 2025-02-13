@@ -923,7 +923,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 70px;
+  padding: 10px 70px;
   background: #16141a;
   border-radius: 0px 0px 100px 100px;
 }
@@ -2288,7 +2288,7 @@ div#mCSB_1_container{
   content: '\e91a';
   font-family: 'icomoon';
   font-size: 16px;
-  left: 0px;
+  left: 235px;
   top: 0px;
 }
 

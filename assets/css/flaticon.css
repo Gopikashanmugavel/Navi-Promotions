@@ -30,9 +30,11 @@
 }
 .icon-2:before {
   content: "\e901";
+  color:  #F7A800;
 }
 .icon-3:before {
   content: "\e902";
+  color:  #F7A800;
 }
 .icon-4:before {
   content: "\e903";
@@ -93,6 +95,7 @@
 }
 .icon-23:before {
   content: "\e916";
+  color:  #F7A800;
 }
 .icon-24:before {
   content: "\e917";
