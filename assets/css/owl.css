@@ -1,7 +1,7 @@
 /* 
  *  Owl Carousel - Animate Plugin
  */
-.owl-carousel .animated {
+ .owl-carousel .animated {
   -webkit-animation-duration: 1000ms;
   animation-duration: 1000ms;
   -webkit-animation-fill-mode: both;
@@ -222,7 +222,7 @@
   position: relative;
   cursor: pointer;
   display: inline-block;
-  color: #898f9f;
+  color: #00488E;
   margin: 0px 10px;
   transition: all 500ms ease;
 }

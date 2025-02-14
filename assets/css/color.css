@@ -141,7 +141,7 @@
 }
 
 .funfact-block-one .inner-box .count-outer{
-	color: #00488E;
+	color:white;
 }
 
 .progress-box .bar-inner{
@@ -368,7 +368,7 @@
 }
 
 .service-sidebar .contact-widget .widget-content h3 span{
-	color: #00488E;
+	color:  #F7A800;
 }
 
 .service-sidebar .contact-widget .widget-content h3 a:hover{
