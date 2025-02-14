@@ -692,7 +692,7 @@ img {
 .banner-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 /* Hide Owl Carousel navigation arrows */
