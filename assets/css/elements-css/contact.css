@@ -91,11 +91,11 @@
 	color: #fff;
 	text-align: center;
 	border-radius: 50%;
-	background: #3B5998;
+	background: #00488E;
 }
 
 .contact-style-two .social-links li:nth-child(2) a{
-	background: #55ACEE;
+	background:#c071c7;;
 }
 
 .contact-style-two .social-links li:nth-child(3) a{
@@ -103,7 +103,7 @@
 }
 
 .contact-style-two .social-links li:last-child a{
-	background: #3F729B;
+	background: #0d416b;
 }
 
 .contact-style-two .form-inner textarea{
