@@ -690,75 +690,7 @@ img {
 
 /***Banner Section ***/
 
-.banner-section {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-/* Hide Owl Carousel navigation arrows */
-.banner-carousel .owl-nav {
-display: none !important;
-}
-.image-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-}
-.content-box {
-  position: relative;
-  z-index: 2;
-  color: white;
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-}
-.subheading {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color:  #F7A800;
-}
-h2 {
-  font-size: 40px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-p {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #726851;
-  text-align:left;
-  white-space: nowrap;
-}
-.theme-btn {
-  display: inline-block;
-  padding: 12px 25px;
-  font-size: 18px;
-  margin-top: 20px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.red-btn {
-  background: #00488E;
-  color: white;
-}
-.red-btn:hover {
-  background: #2190ff;
 
-}
 
 /**feature**/
 
@@ -1001,13 +933,13 @@ p {
 }
 
 .main-header .outer-box  .logo-box .logo{
-  max-width: 184px;
-  margin-left: -20%;
-  margin-top: -5%;
+  max-width: 280px;
+  margin-left: -80%;
+  margin-top: -20%;
 }
 
 .main-header .outer-box .logo-box .logo1{
-  max-width: 184px;
+  max-width: 200px;
 }
 
 .main-header .outer-box .logo-box .logo img{
