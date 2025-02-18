@@ -168,7 +168,8 @@
   font-size: 18px;
   line-height: 28px;
   font-family: 'Poppins', sans-serif;
-  color: #fff;
+  text-align: center;
+  color:  #F7A800;
   font-weight: 500;
   margin-bottom: 14px;
   opacity: 0;
@@ -238,6 +239,7 @@
   -ms-transition: all 1000ms ease;
   -o-transition: all 1000ms ease;
   transition: all 1000ms ease;
+  color: #d1ac5b;
 }
 
 .banner-style-two .banner-carousel .active .content-box p{
