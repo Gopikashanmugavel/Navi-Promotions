@@ -93,13 +93,15 @@
 	box-shadow: 0px 20px 80px rgba(0, 0, 0, 0.05);
 	border-radius: 10px;
 	top: 0px;
+    height: 280px;
 }
 
 .service-block:nth-child(5) .service-block-one .inner-box{
 	background: #fff;
 	box-shadow: 0px 20px 80px rgba(0, 0, 0, 0.05);
 	border-radius: 10px;
-	top: 50px;
+	top: 10px;
+	height: 270px;
 }
 
 
@@ -119,12 +121,12 @@
 
 .service-block:nth-child(4) .service-block-one .shape,
 .service-block:nth-child(6) .service-block-one .shape{
-	top: -10px;
+	top: -50px;
 }
 
 .service-block:nth-child(4) .service-block-one .inner-box .overlay-content .shape,
 .service-block:nth-child(6) .service-block-one .inner-box .overlay-content .shape{
-	top: 90px !important;
+	top: 50px !important;
 }
 
 .service-section .pattern-layer{
