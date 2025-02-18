@@ -338,13 +338,13 @@ figure{
 img {
   display: inline-block;
   max-width: 100%;
-  height: 100%;
+  height: auto;
   transition-delay: .1s;
   transition-timing-function: ease-in-out;
   transition-duration: .7s;
   transition-property: all;
-  margin-left: -100%;
 }
+
 
 /** button **/
 
@@ -831,7 +831,7 @@ p {
 }
 
 .search-popup .upper-box .logo-box{
-  max-width: 149px;
+  max-width: 500%;
 }
 
 .search-popup .overlay-layer {
@@ -993,19 +993,26 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 .main-header .outer-box .logo-box{
-  position: relative;
-  padding: 0px 0px;
+  position: relative
 }
 
-.main-header .outer-box .logo-box .logo{
+.main-header .outer-box  .logo-box .logo{
+  max-width: 184px;
+  margin-left: -20%;
+  margin-top: -5%;
+}
+
+.main-header .outer-box .logo-box .logo1{
   max-width: 184px;
 }
 
 .main-header .outer-box .logo-box .logo img{
-  width: 50%;
+  width: 70%;
+ 
 }
 
 .main-header .menu-right-content{
