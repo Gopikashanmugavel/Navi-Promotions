@@ -98,7 +98,7 @@ banner
   font-size: 18px;
   line-height: 26px;
   font-weight: 500;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
   
 .banner-carousel .content-box h2{
@@ -106,7 +106,7 @@ banner
   line-height: 64px;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
   
 .banner-carousel .content-box p{
